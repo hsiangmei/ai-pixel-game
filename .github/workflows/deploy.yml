@@ -1,0 +1,57 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["master"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Generate env.js from secrets
+        env:
+          GAS_URL: ${{ secrets.GOOGLE_APP_SCRIPT_URL }}
+          PT: ${{ secrets.PASS_THRESHOLD }}
+          QC: ${{ secrets.QUESTION_COUNT }}
+        run: |
+          # 如果沒有設定 secret，則使用預設值
+          FINAL_GAS_URL="${GAS_URL:-}"
+          FINAL_PT="${PT:-3}"
+          FINAL_QC="${QC:-5}"
+          
+          cat <<EOF > env.js
+          window.ENV = {
+              GOOGLE_APP_SCRIPT_URL: "${FINAL_GAS_URL}",
+              PASS_THRESHOLD: ${FINAL_PT},
+              QUESTION_COUNT: ${FINAL_QC}
+          };
+          EOF
+          echo "env.js has been generated with GAS_URL length: ${#FINAL_GAS_URL}"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

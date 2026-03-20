@@ -1,0 +1,16 @@
+{
+  "name": "ai-pixel-game",
+  "version": "1.0.0",
+  "description": "這是一個基於 Vanilla JS + jQuery 開發的懷舊街機像素風問答遊戲。遊戲題目與玩家成績皆透過 Google Sheets 與 Google Apps Script (GAS) 進行無伺服器 (Serverless) 的資料庫管理。",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.8.1",
+    "vite": "^8.0.1"
+  }
+}

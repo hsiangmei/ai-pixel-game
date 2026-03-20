@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Arcade Quiz</title>
+    <!-- Pixel Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- 掃描線特效 (CRT風格) -->
+        <div class="scanlines"></div>
+        
+        <!-- 首頁 Login -->
+        <div id="screen-login" class="screen active">
+            <h1>PIXEL QUEST</h1>
+            <p>INSERT COIN TO PLAY</p>
+            <input type="text" id="player-id" placeholder="ENTER YOUR ID" autocomplete="off">
+            <button id="btn-start">START GAME</button>
+            <div id="loading-msg" class="hidden">LOADING...</div>
+        </div>
+
+        <!-- 遊戲畫面 -->
+        <div id="screen-game" class="screen hidden">
+            <div class="header">
+                <span id="player-disp"></span>
+                <span id="progress-disp"></span>
+            </div>
+            
+            <div class="boss-container">
+                <img id="boss-image" src="" alt="Boss">
+            </div>
+
+            <div class="question-box">
+                <p id="question-text">Question...</p>
+            </div>
+
+            <div class="options-grid">
+                <button class="option-btn" data-opt="A">A</button>
+                <button class="option-btn" data-opt="B">B</button>
+                <button class="option-btn" data-opt="C">C</button>
+                <button class="option-btn" data-opt="D">D</button>
+            </div>
+        </div>
+
+        <!-- 結果畫面 -->
+        <div id="screen-result" class="screen hidden">
+            <h2>GAME OVER</h2>
+            <div id="result-boss-container" class="boss-container"></div>
+            <p id="score-text">SCORE: 0 / 0</p>
+            <p id="pass-text"></p>
+            <button id="btn-restart">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <!-- 載入環境變數與主程式 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="env.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
