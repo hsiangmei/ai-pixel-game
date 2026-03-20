@@ -10,7 +10,7 @@ body {
     padding: 0;
     background-color: #000;
     color: var(--text-color);
-    font-family: 'Press Start 2P', monospace;
+    font-family: 'Microsoft JhengHei', monospace;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,8 +36,11 @@ body {
 /* 掃描線特效 */
 .scanlines {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1));
     background-size: 100% 4px;
     pointer-events: none;
     z-index: 10;
@@ -79,14 +82,13 @@ input {
     background: transparent;
     border: 3px solid var(--border-color);
     color: var(--text-color);
-    font-family: 'Press Start 2P', monospace;
+    font-family: 'Microsoft JhengHei', monospace;
     padding: 15px;
     width: 80%;
     font-size: 16px;
     margin-bottom: 30px;
     text-align: center;
     outline: none;
-    text-transform: uppercase;
 }
 
 input:focus {
@@ -97,7 +99,7 @@ button {
     background: transparent;
     border: 3px solid var(--border-color);
     color: var(--text-color);
-    font-family: 'Press Start 2P', monospace;
+    font-family: 'Microsoft JhengHei', monospace;
     padding: 15px 20px;
     cursor: pointer;
     font-size: 14px;
@@ -164,11 +166,23 @@ button:hover {
 }
 
 @keyframes blink {
-    0% { opacity: 1; text-shadow: 0 0 10px var(--text-color); }
-    100% { opacity: 0.7; text-shadow: none; }
+    0% {
+        opacity: 1;
+        text-shadow: 0 0 10px var(--text-color);
+    }
+
+    100% {
+        opacity: 0.7;
+        text-shadow: none;
+    }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
