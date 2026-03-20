@@ -1,5 +1,11 @@
 $(document).ready(function() {
     // 取得環境變數
+    if (!window.ENV) {
+        console.error("Environment variables not loaded (window.ENV is missing). Check your env.js or deployment configuration.");
+        alert("CRITICAL ERROR: Environment config (env.js) is missing. If you're on GitHub Pages, make sure secrets are set and the Action triggered.");
+        return;
+    }
+
     const GAS_URL = window.ENV.GOOGLE_APP_SCRIPT_URL;
     const PASS_THRESHOLD = parseInt(window.ENV.PASS_THRESHOLD) || 3;
     const QUESTION_COUNT = parseInt(window.ENV.QUESTION_COUNT) || 5;

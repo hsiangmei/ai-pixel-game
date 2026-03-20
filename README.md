@@ -66,7 +66,7 @@
 3. **開啟 Pages 權限**：
    * 到 **Settings** > **Pages**。
    * 在 **Build and deployment** -> **Source** 選擇 **GitHub Actions**。
-4. **自動更新**：往後每次推送 `master` 分支的代碼，GitHub Actions 都會自動執行，產出正確的 `env.js` 並完成部署。
+4. **自動更新**：往後每次推送 `main` 分支的代碼，GitHub Actions 都會自動執行，產出正確的 `env.js` 並完成部署。
 
 ---
 
